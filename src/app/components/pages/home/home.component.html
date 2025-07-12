@@ -1,0 +1,105 @@
+<section class="container overflow-hidden mt-4">
+
+  <div class="position-relative single-item h-auto mt-4 mb-5 wow animate__animated animate__zoomInUp">
+    <div class="image">
+      <img class="w-100" src="assets/images/image1.png" alt="1">
+      <div class="position-absolute top-0 mt-5 ms-5">
+        <div class="px-5 mx-3 py-5 my-5 ">
+          <h1 class="mt-5 fw-bold">Скидки <br> на травянные чаи</h1>
+        </div>
+      </div>
+    </div>
+    <div class="image">
+      <img class="rounded float-end me-3 pe-5 pt-5" src="assets/images/image2.png" alt="2">
+      <div class="position-absolute top-0 mt-5 ms-5">
+        <div class="px-5 mx-3 py-5 my-5">
+          <h1 class="mt-5 fw-bold">Закажи три пачки чая
+            <br>
+            и получи подарок</h1>
+        </div>
+      </div>
+    </div>
+    <div class="image">
+      <img class="w-100" src="assets/images/image3.png" alt="3">
+      <div class="position-absolute top-0 mt-5 ms-5">
+        <div class="px-5 mx-3 py-5 my-5">
+          <h1 class="mt-5 fw-bold">Попробуй нашу новинку
+            <br> — ягодный чай</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="fw-bold animated-outline text-center mt-4 mb-4 wow animate__animated animate__pulse" id="ot">Ответы на часто задаваемые
+    вопросы</h3>
+
+  <div class="accordion row justify-content-center">
+
+    <div class="accordion-item">
+      <h3 class="accordion-header fs-5 text-break p-4 rounded rounded-3 border border-white wow animate__animated animate__backInLeft">
+        Собираете ли вы подарочные боксы?
+      </h3>
+      <div class="overflow-visible">
+        <p class=" lh-lg pb-0 mb-0 wow animate__animated animate__tada">
+          Да, у нас есть такая услуга. Мы можем собрать подарочный бокс на любой вкус, объем и стоимость!
+        </p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h3 class="accordion-header  fs-5 text-break p-4 rounded rounded-3 border border-white wow animate__animated animate__backInRight">
+        Сколько у вас разновидностей чая?
+      </h3>
+      <div>
+        <p class=" lh-lg pb-0 mb-0">
+          Достаточное количество, для приятных вечеров. Около 150 видов.
+        </p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h3 class="accordion-header  fs-5 text-break p-4 rounded rounded-3 border border-white wow animate__animated animate__backInLeft">
+        В какой срок осуществляется доставка?
+      </h3>
+      <div>
+        <p class=" lh-lg pb-0 mb-0">
+          Всё зависит от расстояния и способа доставки. В среднем от 3-7 дней до 14-30 дней.
+        </p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h3 class="accordion-header  fs-5 text-break p-4 rounded rounded-3 border border-white wow animate__animated animate__backInRight">
+        У вас обновляется ассортимент?
+      </h3>
+      <div>
+        <p class=" lh-lg pb-0 mb-0">
+          Конечно. Стараемся чаще удивлять наших покупателей, новыми видами и вкусами.
+        </p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h3 class="accordion-header  fs-5 text-break p-4 rounded rounded-3 border border-white wow animate__animated animate__backInLeft">
+        Какого объема у вас пачки чая?
+      </h3>
+      <div>
+        <p class=" lh-lg pb-0 mb-0">
+          Пакетированный 25шт, 50шт, 100шт в каробке. А так же весовой 100 грамм, 200 грамм, 500 грамм.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade show d-block" tabindex="-1" role="dialog"
+       *ngIf="showPopup" style="background-color: rgba(0,0,0,0.5)">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-center p-4">
+        <button type="button" class="btn-close position-absolute top-0 end-0 m-2"
+                aria-label="Close" (click)="showPopup = false"></button>
+        <h5 class="modal-title mb-3">Посмотрите наши чайные коллекции</h5>
+        <button class="btn btn-primary" (click)="goToCatalog()">Смотреть</button>
+      </div>
+    </div>
+  </div>
+</section>

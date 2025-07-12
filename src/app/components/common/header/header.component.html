@@ -1,0 +1,31 @@
+<section>
+  <div data-bs-theme="dark" class="wow animate__animated animate__bounce">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-light overflow-hidden">
+      <div class="container-fluid">
+        <a class="navbar-brand wow animate__animated animate__lightSpeedInLeft" routerLink="/">Logo</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0 wow animate__animated animate__lightSpeedInLeft">
+            <li class="nav-item">
+              <a class="nav-link active" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Главная</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/catalog" routerLinkActive="active">Каталог</a>
+            </li>
+          </ul>
+          <form (submit)="onSearch()" class="d-flex">
+            <input type="text" class="form-control me-2" [(ngModel)]="query" name="search" placeholder="Поиск чая...">
+            <button class="btn btn-outline-primary px-4" type="submit">Найти</button>
+            <button type="button" class="btn btn-outline-warning ms-2" (click)="onClear()" *ngIf="query">Сбросить</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </div>
+</section>
+
+
+

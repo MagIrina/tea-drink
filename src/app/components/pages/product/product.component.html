@@ -1,0 +1,21 @@
+<div class="container mt-4" *ngIf="!loading && product">
+  <div class="row">
+    <div class="col-md-6">
+      <img [src]="product.image" class="img-fluid rounded" [alt]="product.title" />
+    </div>
+    <div class="col-md-6">
+      <h2 class="mb-3">{{ product.title }}</h2>
+      <p class="text-muted">{{ product.description }}</p>
+      <p class="fw-bold fs-4">{{ product.price }} ₽</p>
+      <button class="btn btn-primary mt-3" (click)="buy()">Купить</button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="loading" class="text-center mt-5">
+  <div class="spinner-border text-primary" role="status"></div>
+</div>
+
+<div *ngIf="error" class="alert alert-danger text-center mt-5">
+  Ошибка загрузки товара.
+</div>

@@ -1,0 +1,90 @@
+<h3 class="fw-bold text-center mt-5 mb-5 wow animate__animated animate__tada">Сделать заказ</h3>
+
+<div class="d-flex justify-content-center w-100 flex-column align-items-center">
+
+  <div *ngIf="success" class="alert alert-success text-center mt-5 w-50">
+    <h4>Спасибо за заказ!</h4>
+    <img src="assets/images/spasibo.jpg" alt="Спасибо" class="img-fluid mb-3" style="max-width: 550px;">
+    <p>Мы свяжемся с вами в ближайшее время.</p>
+  </div>
+  <form *ngIf="!success" class="row g-3 validate" [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+
+    <div class="offset-md-3 col-md-2 offset-md-3">
+      <label for="inputName" class="form-label wow animate__animated animate__rubberBand">Имя</label>
+      <input type="text" class="form-control wow animate__animated animate__pulse" id="inputName" formControlName="name">
+      <div class="text-danger" *ngIf="f['name'].invalid && (f['name'].dirty || f['name'].touched)">
+        <small *ngIf="f['name'].errors?.['required']">Имя обязательно</small>
+        <small *ngIf="f['name'].errors?.['pattern']">Только буквы</small>
+      </div>
+    </div>
+
+    <div class="col-md-2">
+      <label for="inputSurname" class="form-label wow animate__animated animate__rubberBand">Фамилия</label>
+      <input type="text" class="form-control surname wow animate__animated animate__pulse" id="inputSurname" formControlName="last_name">
+      <div class="text-danger" *ngIf="f['last_name'].invalid && (f['last_name'].dirty || f['last_name'].touched)">
+        <small *ngIf="f['last_name'].errors?.['required']">Фамилия обязательна</small>
+        <small *ngIf="f['last_name'].errors?.['pattern']">Только буквы</small>
+      </div>
+    </div>
+
+    <div class="col-md-2">
+      <label for="inputTel" class="form-label wow animate__animated animate__rubberBand">Телефон</label>
+      <input type="tel" class="form-control wow animate__animated animate__pulse" id="inputTel" formControlName="phone">
+      <div class="text-danger" *ngIf="f['phone'].invalid && (f['phone'].dirty || f['phone'].touched)">
+        <small *ngIf="f['phone'].errors?.['required']">Телефон обязателен</small>
+        <small *ngIf="f['phone'].errors?.['pattern']">Введите 11 цифр, можно с +</small>
+      </div>
+    </div>
+
+    <div class="offset-md-3 col-md-3 offset-md-3">
+      <label for="inputCity" class="form-label wow animate__animated animate__rubberBand">Страна</label>
+      <input type="text" class="form-control wow animate__animated animate__pulse" id="inputCity" formControlName="country">
+      <div class="text-danger" *ngIf="f['country'].invalid && (f['country'].dirty || f['country'].touched)">
+        <small>Укажите страну</small>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <label for="inputZip" class="form-label wow animate__animated animate__rubberBand">Индекс</label>
+      <input type="text" class="form-control input-number wow animate__animated animate__pulse" id="inputZip" formControlName="zip">
+      <div class="text-danger" *ngIf="f['zip'].invalid && (f['zip'].dirty || f['zip'].touched)">
+        <small *ngIf="f['zip'].errors?.['required']">Индекс обязателен</small>
+        <small *ngIf="f['zip'].errors?.['pattern']">Должно быть 6 цифр</small>
+      </div>
+    </div>
+
+    <div class="offset-md-3 col-md-6 offset-md-3">
+      <label for="inputAddress" class="form-label wow animate__animated animate__rubberBand">Адрес</label>
+      <input type="text" class="form-control wow animate__animated animate__pulse" id="inputAddress" formControlName="address">
+      <div class="text-danger" *ngIf="f['address'].invalid && (f['address'].dirty || f['address'].touched)">
+        <small *ngIf="f['address'].errors?.['required']">Адрес обязателен</small>
+        <small *ngIf="f['address'].errors?.['pattern']">Неверный формат</small>
+      </div>
+    </div>
+
+    <div class="offset-md-3 col-md-6 offset-md-3">
+      <label class="form-label wow animate__animated animate__rubberBand">Товар</label>
+      <input type="text" class="form-control wow animate__animated animate__pulse"
+             [value]="productName" disabled />
+    </div>
+
+    <div class="offset-md-3 col-md-6 offset-md-3">
+      <label class="form-label wow animate__animated animate__rubberBand">Комментарий</label>
+      <textarea class="form-control wow animate__animated animate__pulse" rows="3" formControlName="comment"></textarea>
+    </div>
+
+    <div class="offset-md-3 col-6 offset-md-3">
+      <button
+        type="submit"
+        id="validateButton"
+        class="hvr-round-corners hvr-back-pulse btn btn-sm btn-primary pe-5 ps-5 pt-2 pb-2 btn-primary wow animate__animated animate__heartBeat"
+        [disabled]="orderForm.invalid || loading"
+      >
+        {{ loading ? 'Отправка...' : 'Отправить' }}
+      </button>
+      <div class="text-danger mt-2" *ngIf="showError">
+        Произошла ошибка. Попробуйте еще раз.
+      </div>
+    </div>
+  </form>
+</div>
