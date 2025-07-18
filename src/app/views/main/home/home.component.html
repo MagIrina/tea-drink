@@ -30,13 +30,15 @@
     </div>
   </div>
 
-  <h3 class="fw-bold animated-outline text-center mt-4 mb-4 wow animate__animated animate__pulse" id="ot">Ответы на часто задаваемые
+  <h3 class="fw-bold animated-outline text-center mt-4 mb-4 wow animate__animated animate__pulse" id="ot">Ответы на
+    часто задаваемые
     вопросы</h3>
 
   <div class="accordion row justify-content-center">
 
     <div class="accordion-item">
-      <h3 class="accordion-header fs-5 text-break p-4 rounded rounded-3 border border-white wow animate__animated animate__backInLeft">
+      <h3
+        class="accordion-header fs-5 text-break p-4 rounded rounded-3 border border-white wow animate__animated animate__backInLeft">
         Собираете ли вы подарочные боксы?
       </h3>
       <div class="overflow-visible">
@@ -47,7 +49,8 @@
     </div>
 
     <div class="accordion-item">
-      <h3 class="accordion-header  fs-5 text-break p-4 rounded rounded-3 border border-white wow animate__animated animate__backInRight">
+      <h3
+        class="accordion-header  fs-5 text-break p-4 rounded rounded-3 border border-white wow animate__animated animate__backInRight">
         Сколько у вас разновидностей чая?
       </h3>
       <div>
@@ -58,7 +61,8 @@
     </div>
 
     <div class="accordion-item">
-      <h3 class="accordion-header  fs-5 text-break p-4 rounded rounded-3 border border-white wow animate__animated animate__backInLeft">
+      <h3
+        class="accordion-header  fs-5 text-break p-4 rounded rounded-3 border border-white wow animate__animated animate__backInLeft">
         В какой срок осуществляется доставка?
       </h3>
       <div>
@@ -69,7 +73,8 @@
     </div>
 
     <div class="accordion-item">
-      <h3 class="accordion-header  fs-5 text-break p-4 rounded rounded-3 border border-white wow animate__animated animate__backInRight">
+      <h3
+        class="accordion-header  fs-5 text-break p-4 rounded rounded-3 border border-white wow animate__animated animate__backInRight">
         У вас обновляется ассортимент?
       </h3>
       <div>
@@ -80,7 +85,8 @@
     </div>
 
     <div class="accordion-item">
-      <h3 class="accordion-header  fs-5 text-break p-4 rounded rounded-3 border border-white wow animate__animated animate__backInLeft">
+      <h3
+        class="accordion-header  fs-5 text-break p-4 rounded rounded-3 border border-white wow animate__animated animate__backInLeft">
         Какого объема у вас пачки чая?
       </h3>
       <div>
@@ -91,15 +97,13 @@
     </div>
   </div>
 
-  <div class="modal fade show d-block" tabindex="-1" role="dialog"
-       *ngIf="showPopup" style="background-color: rgba(0,0,0,0.5)">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content text-center p-4">
-        <button type="button" class="btn-close position-absolute top-0 end-0 m-2"
-                aria-label="Close" (click)="showPopup = false"></button>
-        <h5 class="modal-title mb-3">Посмотрите наши чайные коллекции</h5>
-        <button class="btn btn-primary" (click)="goToCatalog()">Смотреть</button>
-      </div>
+  <ng-template #popup let-modal>
+    <div class="modal-content text-center p-4">
+      <button type="button" class="btn-close position-absolute top-0 end-0 m-2"
+              aria-label="Close" (click)="modal.dismiss()"></button>
+      <h5 class="modal-title mb-3">Посмотрите наши чайные коллекции 💚</h5>
+      <button class="btn btn-success" (click)="goToCatalog(); modal.close()">Перейти в каталог</button>
     </div>
-  </div>
+  </ng-template>
+
 </section>

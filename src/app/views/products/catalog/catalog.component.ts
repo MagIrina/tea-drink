@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { SearchService } from 'src/app/services/search.service';
-import {Product} from "../../../types/product.type";
+import {Product} from "../../../../types/product.type";
+import {SearchService} from "../../../shared/services/search.service";
+import {environment} from "../../../../environments/environment";
 
 
 @Component({
@@ -33,7 +34,7 @@ export class CatalogComponent implements OnInit {
     this.loading = true;
     this.error = false;
 
-    this.http.get<Product[]>('https://testologia.ru/tea').subscribe({
+    this.http.get<Product[]>(environment.apiURL + 'tea').subscribe({
       next: (data) => {
         if (query) {
           const normalized = query.trim().toLowerCase();
@@ -57,6 +58,6 @@ export class CatalogComponent implements OnInit {
   }
 
   goToProduct(id: number): void {
-    this.router.navigate(['/product', id]);
+    this.router.navigate(['/products', id]);
   }
 }

@@ -52,3 +52,6 @@ body {
 .accordion .ui-accordion-header-active .ui-accordion-header-icon {
   background-image: url(assets/images/img_3.png);
 }
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';

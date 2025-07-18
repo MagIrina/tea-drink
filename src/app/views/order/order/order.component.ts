@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import {OrderRequest} from "../../../types/order-request";
+import {OrderRequest} from "../../../../types/order-request";
+import {environment} from "../../../../environments/environment";
 
 interface OrderResponse {
   success: 1 | 0;
@@ -62,7 +63,7 @@ export class OrderComponent implements OnInit {
       product: this.productName || 'no product'
     };
 
-    this.http.post<OrderResponse>('https://testologia.ru/order-tea', body).subscribe({
+    this.http.post<OrderResponse>(environment.apiURL +'order-tea', body).subscribe({
       next: (res) => {
         this.loading = false;
         if (res.success === 1) {

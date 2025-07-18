@@ -4,7 +4,7 @@
 
   <div *ngIf="success" class="alert alert-success text-center mt-5 w-50">
     <h4>Спасибо за заказ!</h4>
-    <img src="assets/images/spasibo.jpg" alt="Спасибо" class="img-fluid mb-3" style="max-width: 550px;">
+    <img src="assets/images/spasibo.jpg" alt="Спасибо" class="img-fluid mb-3" style="max-width: 100%;">
     <p>Мы свяжемся с вами в ближайшее время.</p>
   </div>
   <form *ngIf="!success" class="row g-3 validate" [formGroup]="orderForm" (ngSubmit)="onSubmit()">

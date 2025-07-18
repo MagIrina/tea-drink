@@ -1,6 +1,7 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Subscription, timer} from "rxjs";
 import {Router} from "@angular/router";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 
 declare var $: any;
 
@@ -10,10 +11,10 @@ declare var $: any;
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  showPopup = false;
   private popupSub!: Subscription;
+  @ViewChild('popup') popupTemplate: any;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private modalService: NgbModal) {}
 
   ngOnInit(): void {
     $('.single-item').slick({
@@ -28,8 +29,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     });
 
     this.popupSub = timer(10000).subscribe(() => {
-      $('#popupModal').modal('show');
-      this.showPopup = true;
+      this.modalService.open(this.popupTemplate);
     });
 
     $('.accordion').accordion({
@@ -45,8 +45,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   goToCatalog(): void {
-    $('#popupModal').modal('hide');
-    this.router.navigate(['/catalog']);
+    this.router.navigate(['/products']);
   }
 
   ngOnDestroy(): void {
