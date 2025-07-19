@@ -2,8 +2,10 @@ import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Subscription, timer} from "rxjs";
 import {Router} from "@angular/router";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {SearchService} from "../../../shared/services/search.service";
 
 declare var $: any;
+
 
 @Component({
   selector: 'home',
@@ -14,9 +16,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   private popupSub!: Subscription;
   @ViewChild('popup') popupTemplate: any;
 
-  constructor(private router: Router, private modalService: NgbModal) {}
+  constructor(private router: Router, private modalService: NgbModal, private searchService: SearchService) {}
 
   ngOnInit(): void {
+
+
     $('.single-item').slick({
       dots: true,
       slidesToShow: 1,
