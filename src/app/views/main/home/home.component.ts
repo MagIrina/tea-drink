@@ -22,7 +22,6 @@ export class HomeComponent implements OnInit, OnDestroy {
 
 
     $('.single-item').slick({
-      dots: true,
       slidesToShow: 1,
       infinite: true,
       speed: 1500,

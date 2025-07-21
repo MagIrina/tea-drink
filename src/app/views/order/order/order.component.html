@@ -12,34 +12,34 @@
     <div class="offset-md-3 col-md-2 offset-md-3">
       <label for="inputName" class="form-label wow animate__animated animate__rubberBand">Имя</label>
       <input type="text" class="form-control wow animate__animated animate__pulse" id="inputName" formControlName="name">
-      <div class="text-danger" *ngIf="f['name'].invalid && (f['name'].dirty || f['name'].touched)">
-        <small *ngIf="f['name'].errors?.['required']">Имя обязательно</small>
-        <small *ngIf="f['name'].errors?.['pattern']">Только буквы</small>
+      <div class="text-danger" *ngIf="formControls['name'].invalid && (formControls['name'].dirty || formControls['name'].touched)">
+        <small *ngIf="formControls['name'].errors?.['required']">Имя обязательно</small>
+        <small *ngIf="formControls['name'].errors?.['pattern']">Только буквы</small>
       </div>
     </div>
 
     <div class="col-md-2">
       <label for="inputSurname" class="form-label wow animate__animated animate__rubberBand">Фамилия</label>
       <input type="text" class="form-control surname wow animate__animated animate__pulse" id="inputSurname" formControlName="last_name">
-      <div class="text-danger" *ngIf="f['last_name'].invalid && (f['last_name'].dirty || f['last_name'].touched)">
-        <small *ngIf="f['last_name'].errors?.['required']">Фамилия обязательна</small>
-        <small *ngIf="f['last_name'].errors?.['pattern']">Только буквы</small>
+      <div class="text-danger" *ngIf="formControls['last_name'].invalid && (formControls['last_name'].dirty || formControls['last_name'].touched)">
+        <small *ngIf="formControls['last_name'].errors?.['required']">Фамилия обязательна</small>
+        <small *ngIf="formControls['last_name'].errors?.['pattern']">Только буквы</small>
       </div>
     </div>
 
     <div class="col-md-2">
       <label for="inputTel" class="form-label wow animate__animated animate__rubberBand">Телефон</label>
       <input type="tel" class="form-control wow animate__animated animate__pulse" id="inputTel" formControlName="phone">
-      <div class="text-danger" *ngIf="f['phone'].invalid && (f['phone'].dirty || f['phone'].touched)">
-        <small *ngIf="f['phone'].errors?.['required']">Телефон обязателен</small>
-        <small *ngIf="f['phone'].errors?.['pattern']">Введите 11 цифр, можно с +</small>
+      <div class="text-danger" *ngIf="formControls['phone'].invalid && (formControls['phone'].dirty || formControls['phone'].touched)">
+        <small *ngIf="formControls['phone'].errors?.['required']">Телефон обязателен</small>
+        <small *ngIf="formControls['phone'].errors?.['pattern']">Введите 11 цифр, можно с +</small>
       </div>
     </div>
 
     <div class="offset-md-3 col-md-3 offset-md-3">
       <label for="inputCity" class="form-label wow animate__animated animate__rubberBand">Страна</label>
       <input type="text" class="form-control wow animate__animated animate__pulse" id="inputCity" formControlName="country">
-      <div class="text-danger" *ngIf="f['country'].invalid && (f['country'].dirty || f['country'].touched)">
+      <div class="text-danger" *ngIf="formControls['country'].invalid && (formControls['country'].dirty || formControls['country'].touched)">
         <small>Укажите страну</small>
       </div>
     </div>
@@ -47,18 +47,18 @@
     <div class="col-md-3">
       <label for="inputZip" class="form-label wow animate__animated animate__rubberBand">Индекс</label>
       <input type="text" class="form-control input-number wow animate__animated animate__pulse" id="inputZip" formControlName="zip">
-      <div class="text-danger" *ngIf="f['zip'].invalid && (f['zip'].dirty || f['zip'].touched)">
-        <small *ngIf="f['zip'].errors?.['required']">Индекс обязателен</small>
-        <small *ngIf="f['zip'].errors?.['pattern']">Должно быть 6 цифр</small>
+      <div class="text-danger" *ngIf="formControls['zip'].invalid && (formControls['zip'].dirty || formControls['zip'].touched)">
+        <small *ngIf="formControls['zip'].errors?.['required']">Индекс обязателен</small>
+        <small *ngIf="formControls['zip'].errors?.['pattern']">Должно быть 6 цифр</small>
       </div>
     </div>
 
     <div class="offset-md-3 col-md-6 offset-md-3">
       <label for="inputAddress" class="form-label wow animate__animated animate__rubberBand">Адрес</label>
       <input type="text" class="form-control wow animate__animated animate__pulse" id="inputAddress" formControlName="address">
-      <div class="text-danger" *ngIf="f['address'].invalid && (f['address'].dirty || f['address'].touched)">
-        <small *ngIf="f['address'].errors?.['required']">Адрес обязателен</small>
-        <small *ngIf="f['address'].errors?.['pattern']">Неверный формат</small>
+      <div class="text-danger" *ngIf="formControls['address'].invalid && (formControls['address'].dirty || formControls['address'].touched)">
+        <small *ngIf="formControls['address'].errors?.['required']">Адрес обязателен</small>
+        <small *ngIf="formControls['address'].errors?.['pattern']">Неверный формат</small>
       </div>
     </div>
 

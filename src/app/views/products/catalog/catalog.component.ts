@@ -30,24 +30,44 @@ export class CatalogComponent implements OnInit {
     });
   }
 
-  loadProducts(query: string): void {
+  // loadProducts(query: string): void {
+  //   this.loading = true;
+  //   this.error = false;
+  //
+  //   this.http.get<Product[]>(environment.apiURL + 'tea').subscribe({
+  //     next: (data) => {
+  //       if (query) {
+  //         const normalized = query.trim().toLowerCase();
+  //         const regex = new RegExp(normalized, 'i');
+  //
+  //         this.products = data.filter(product =>
+  //           product.title.toLowerCase().includes(normalized) ||
+  //           regex.test(product.description.toLowerCase())
+  //         );
+  //       } else {
+  //         this.products = data;
+  //       }
+  //
+  //       this.loading = false;
+  //     },
+  //     error: () => {
+  //       this.loading = false;
+  //       this.error = true;
+  //     }
+  //   });
+  // }
+
+  loadProducts(query: string = ''): void {
     this.loading = true;
     this.error = false;
 
-    this.http.get<Product[]>(environment.apiURL + 'tea').subscribe({
+    const url = query
+      ? `${environment.apiURL}tea?search=${encodeURIComponent(query)}`
+      : `${environment.apiURL}tea`;
+
+    this.http.get<Product[]>(url).subscribe({
       next: (data) => {
-        if (query) {
-          const normalized = query.trim().toLowerCase();
-          const regex = new RegExp(normalized, 'i');
-
-          this.products = data.filter(product =>
-            product.title.toLowerCase().includes(normalized) ||
-            regex.test(product.description.toLowerCase())
-          );
-        } else {
-          this.products = data;
-        }
-
+        this.products = data;
         this.loading = false;
       },
       error: () => {
@@ -56,6 +76,7 @@ export class CatalogComponent implements OnInit {
       }
     });
   }
+
 
   goToProduct(id: number): void {
     this.router.navigate(['/products', id]);
